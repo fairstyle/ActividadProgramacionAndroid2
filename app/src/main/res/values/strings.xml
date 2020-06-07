@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">ActividadProgramacionAndroid2</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="ir">Ir</string>
+    <string name="latitud">Latitud</string>
+    <string name="longitud">Longitud</string>
+</resources>
