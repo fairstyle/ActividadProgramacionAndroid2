@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -15,22 +16,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Button button = findViewById(R.id.botonIr);
-        button.setOnClickListener(new View.OnClickListener() {
+        Button buttonDestino = findViewById(R.id.botonDestino);
+        buttonDestino.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View v) {
 
-                Intent intent = new Intent(v.getContext(), MapsActivity.class);
+                Intent intent = new Intent(v.getContext(), MainActivity2.class);
 
-                EditText latitudInput = findViewById(R.id.inputLatitud);
-                EditText longitudInput = findViewById(R.id.inputLongitud);
+                EditText latitudOrigenInput = findViewById(R.id.inputOrigenLatitud);
+                EditText longitudOrigenInput = findViewById(R.id.inputOrigenLongitud);
 
-                System.out.println("latitud input!!!!!!!!");
-                if(!latitudInput.getText().toString().equals("") || !longitudInput.getText().toString().equals("")) {
-                    intent.putExtra("Latitud", latitudInput.getText().toString().equals("") ? 0:Float.parseFloat(latitudInput.getText().toString()));
-                    intent.putExtra("Longitud", longitudInput.getText().toString().equals("") ? 0:Float.parseFloat(longitudInput.getText().toString()));
+                if(!latitudOrigenInput.getText().toString().equals("") && !longitudOrigenInput.getText().toString().equals("")) {
+                    intent.putExtra("LatitudOrigen", latitudOrigenInput.getText().toString().equals("") ? 0:Float.parseFloat(latitudOrigenInput.getText().toString()));
+                    intent.putExtra("LongitudOrigen", longitudOrigenInput.getText().toString().equals("") ? 0:Float.parseFloat(longitudOrigenInput.getText().toString()));
+                    startActivity(intent);
+                }else{
+                    Toast.makeText(getApplicationContext(), "No puede haber un campo vacio", Toast.LENGTH_SHORT).show();
                 }
-                startActivity(intent);
+
             }
 
         });

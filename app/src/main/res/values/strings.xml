@@ -4,4 +4,6 @@
     <string name="ir">Ir</string>
     <string name="latitud">Latitud</string>
     <string name="longitud">Longitud</string>
+    <string name="origen">Origen</string>
+    <string name="destino">Destino</string>
 </resources>
